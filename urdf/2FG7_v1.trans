@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<robot name="2FG7_v1" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="top_to_left_finger_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="top_to_left_finger">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="top_to_left_finger_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
