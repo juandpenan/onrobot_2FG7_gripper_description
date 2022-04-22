@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(2FG7_v1_description)
+project(2FG7_outwards_description)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)

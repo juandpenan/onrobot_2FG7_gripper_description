@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<robot name="2FG7_inwards" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find 2FG7_inwards_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find 2FG7_inwards_description)/urdf/2FG7_inwards.trans" />
+<xacro:include filename="$(find 2FG7_inwards_description)/urdf/2FG7_inwards.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.011012174829169266 0.02949692580937681 0.055310823797750784" rpy="0 0 0"/>
+    <mass value="1.2646523179240972"/>
+    <inertia ixx="0.001504" iyy="0.001812" izz="0.001053" ixy="-0.0" iyz="0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_finger_v1_1">
+  <inertial>
+    <origin xyz="0.01878686731087252 3.0377198621395207e-06 0.02803421548623221" rpy="0 0 0"/>
+    <mass value="0.023219383355922288"/>
+    <inertia ixx="6e-06" iyy="5e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.032239 -0.029494 -0.09445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/right_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.032239 -0.029494 -0.09445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/right_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_finger_v1_1">
+  <inertial>
+    <origin xyz="-0.018786539333398813 -2.881240314580452e-06 0.02803421548623866" rpy="0 0 0"/>
+    <mass value="0.023219383355922288"/>
+    <inertia ixx="6e-06" iyy="5e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.054361 -0.029494 -0.09445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/left_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.054361 -0.029494 -0.09445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://2FG7_inwards_description/meshes/left_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_finger_joint" type="fixed">
+  <origin xyz="-0.032239 0.029494 0.09445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_finger_v1_1"/>
+</joint>
+
+<joint name="lef_finger_joint" type="prismatic">
+  <origin xyz="0.054361 0.029494 0.09445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_finger_v1_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="0.038" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+</robot>
