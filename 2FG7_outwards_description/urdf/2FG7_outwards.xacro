@@ -2,9 +2,11 @@
 <robot name="2FG7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find 2FG7_outwards_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find 2FG7_outwards_description)/urdf/2FG7_outwards.trans" />
+<xacro:include filename="$(find 2FG7_outwards_description)/urdf/2FG7_outwards.trans.xacro" />
 <xacro:include filename="$(find 2FG7_outwards_description)/urdf/2FG7_outwards.gazebo" />
-<link name="base_link">
+<xacro:gripper_transmission/>
+
+<link name="gripper_base_link">
   <inertial>
     <origin xyz="-4.898915958379213e-05 2.84756960271082e-06 0.06811082379774974" rpy="0 0 0"/>
     <mass value="1.2646523179240972"/>
@@ -67,18 +69,21 @@
   </collision>
 </link>
 
-<joint name="right_finger_joint" type="fixed">
-  <origin xyz="-0.054361 -0.029494 0.12005" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="right_finger_v1_1"/>
+<joint name="left_finger_joint" type="prismatic">
+  <origin xyz="0.032239 -0.029494 0.12005" rpy="0 0 0"/>
+  <parent link="gripper_base_link"/>
+  <child link="left_finger_v1_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit lower="0.0" upper="0.019" effort="140" velocity="0.45"/> <!-- total 0.38 -->
 </joint>
 
-<joint name="lef_finger_joint" type="prismatic">
-  <origin xyz="0.032239 -0.029494 0.12005" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="left_finger_v1_1"/>
-  <axis xyz="-1.0 0.0 -0.0"/>
-  <limit upper="0.038" lower="0.0" effort="100" velocity="100"/>
+<joint name="right_finger_joint" type="prismatic">
+  <origin xyz="-0.054361 -0.029494 0.12005" rpy="0 0 0"/>
+  <parent link="gripper_base_link"/>
+  <child link="right_finger_v1_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit lower="-0.019" upper="0.019" effort="140" velocity="0.45"/>
+  <mimic joint="left_finger_joint" multiplier="1.0"/>
 </joint>
 
 </robot>
