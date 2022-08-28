@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="2FG7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-  <xacro:property name="body_color" value="Gazebo/Silver" />
+  <xacro:property name="body_color" value="Gazebo/Grey" />
   <!-- uncomment following line to control the gripper only -->
   <!-- <gazebo>
       <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
@@ -40,4 +40,5 @@
     <selfCollide>true</selfCollide>
   </gazebo>
 
+  
 </robot>

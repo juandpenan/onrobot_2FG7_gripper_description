@@ -40,7 +40,7 @@
     </geometry>
     <material name="silver"/>
   </visual>
-  <collision>
+  <collision name="right_finger_collision">
     <origin xyz="0.054361 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://2FG7_outwards_description/meshes/right_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
@@ -61,7 +61,7 @@
     </geometry>
     <material name="silver"/>
   </visual>
-  <collision>
+  <collision name="left_finger_collision">
     <origin xyz="-0.032239 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://2FG7_outwards_description/meshes/left_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
@@ -85,5 +85,6 @@
   <limit lower="-0.019" upper="0.019" effort="140" velocity="0.45"/>
   <mimic joint="left_finger_joint" multiplier="1.0"/>
 </joint>
+
 
 </robot>
