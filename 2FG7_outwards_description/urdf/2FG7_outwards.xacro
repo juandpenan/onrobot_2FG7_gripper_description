@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="2FG7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find 2FG7_outwards_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find 2FG7_outwards_description)/urdf/2FG7_outwards.trans.xacro" />
-<xacro:include filename="$(find 2FG7_outwards_description)/urdf/2FG7_outwards.gazebo" />
+<xacro:include filename="$(find onrobot_2fg7_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find onrobot_2fg7_description)/urdf/2FG7_outwards.trans.xacro" />
+<xacro:include filename="$(find onrobot_2fg7_description)/urdf/2FG7_outwards.gazebo" />
 <xacro:gripper_transmission/>
 
 <link name="gripper_base_link">
@@ -15,19 +15,19 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="right_finger_v1_1">
+<link name="right_finger_link">
   <inertial>
     <origin xyz="0.017874296677847158 0.02949104051991925 0.01523421548622829" rpy="0 0 0"/>
     <mass value="0.023219383355922288"/>
@@ -36,19 +36,19 @@
   <visual>
     <origin xyz="0.054361 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/right_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/right_finger_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision name="right_finger_collision">
     <origin xyz="0.054361 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/right_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/right_finger_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="left_finger_v1_1">
+<link name="left_finger_link">
   <inertial>
     <origin xyz="0.004247703322119739 0.029496959480080673 0.015234215486237948" rpy="0 0 0"/>
     <mass value="0.023219383355922288"/>
@@ -57,14 +57,14 @@
   <visual>
     <origin xyz="-0.032239 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/left_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/left_finger_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision name="left_finger_collision">
     <origin xyz="-0.032239 0.029494 -0.12005" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://2FG7_outwards_description/meshes/left_finger_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://onrobot_2fg7_description/meshes/left_finger_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -72,7 +72,7 @@
 <joint name="left_finger_joint" type="prismatic">
   <origin xyz="0.032239 -0.029494 0.12005" rpy="0 0 0"/>
   <parent link="gripper_base_link"/>
-  <child link="left_finger_v1_1"/>
+  <child link="left_finger_link"/>
   <axis xyz="-1.0 0.0 0.0"/>
   <limit lower="0.0" upper="0.019" effort="140" velocity="0.45"/> <!-- total 0.38 -->
 </joint>
@@ -80,7 +80,7 @@
 <joint name="right_finger_joint" type="prismatic">
   <origin xyz="-0.054361 -0.029494 0.12005" rpy="0 0 0"/>
   <parent link="gripper_base_link"/>
-  <child link="right_finger_v1_1"/>
+  <child link="right_finger_link"/>
   <axis xyz="1.0 0.0 0.0"/>
   <limit lower="-0.019" upper="0.019" effort="140" velocity="0.45"/>
   <mimic joint="left_finger_joint" multiplier="1.0"/>

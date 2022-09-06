@@ -20,7 +20,7 @@
     <gravity>true</gravity>
   </gazebo>
 
-  <gazebo reference="right_finger_v1_1">
+  <gazebo reference="right_finger_link">
     <material>${body_color}</material>
     <implicitSpringDamper>1</implicitSpringDamper>
     <mu1>0.2</mu1>
@@ -30,7 +30,7 @@
     <selfCollide>true</selfCollide>
   </gazebo>
 
-  <gazebo reference="left_finger_v1_1">
+  <gazebo reference="left_finger_link">
     <material>${body_color}</material>
     <implicitSpringDamper>1</implicitSpringDamper>
     <mu1>0.2</mu1>

@@ -7,8 +7,8 @@
 				<arm>
 					<arm_name>2FG7</arm_name>
 					<palm_link>gripper_base_link</palm_link>
-					<gripper_link>left_finger_v1_1</gripper_link>
-					<gripper_link>right_finger_v1_1</gripper_link>
+					<gripper_link>left_finger_link</gripper_link>
+					<gripper_link>right_finger_link</gripper_link>
 				</arm>
 				<forces_angle_tolerance>80</forces_angle_tolerance>
 				<update_rate>10</update_rate>
