@@ -1,0 +1,11 @@
+2FG7_outwards_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  lef_finger_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: lef_finger_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
