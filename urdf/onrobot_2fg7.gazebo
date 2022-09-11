@@ -2,12 +2,19 @@
 <robot name="2FG7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
   <xacro:property name="body_color" value="Gazebo/Grey" />
-  <!-- uncomment following line to control the gripper only -->
-  <!-- <gazebo>
-      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
-          <robotNamespace>/</robotNamespace>
-      </plugin> 
-  </gazebo> -->
+
+  <xacro:macro name="gazebo_control" params="is_control_on">
+
+    <xacro:property name="control_bool" value="${is_control_on}"/>
+
+    <xacro:if value="${control_bool}">
+      <gazebo>
+          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
+              <robotNamespace>/</robotNamespace>
+          </plugin> 
+      </gazebo>
+    </xacro:if>
+  </xacro:macro>
 
   <gazebo reference="gripper_base_link">
     <material>${body_color}</material>

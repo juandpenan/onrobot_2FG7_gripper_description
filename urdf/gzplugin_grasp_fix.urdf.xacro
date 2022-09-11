@@ -6,7 +6,7 @@
 			<plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
 				<arm>
 					<arm_name>2FG7</arm_name>
-					<palm_link>gripper_base_link</palm_link>
+					<palm_link>base_link</palm_link>
 					<gripper_link>left_finger_link</gripper_link>
 					<gripper_link>right_finger_link</gripper_link>
 				</arm>

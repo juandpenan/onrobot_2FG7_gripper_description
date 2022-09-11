@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
-<robot name="2FG7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find onrobot_2fg7_description)/urdf/2FG7_outwards.xacro" />
- 
+<robot name="2fg7_outwards" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find onrobot_2fg7_description)/urdf/onrobot_2fg7.xacro" />
+ <xacro:onrobot_2fg7_gripper prefix="" finger_configuration="outwards"/>
 
   <link name="world" />
   
   <joint name="world_joint" type="fixed">
     <parent link="world" />
-    <child link = "gripper_base_link" />
+    <child link = "base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
   <xacro:include filename="$(find onrobot_2fg7_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
